@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!{% endblock %}
+
+{% block main %}
+    <h1>Bienvenue</h1>
+
+    <form method="get">
+        <input type="text" name="ville" placeholder="Ville">
+        <input type="text" name="motCle" placeholder="Mot-clé">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    {% for voiture in voitures %}
+        <div>
+            <h2>{{ voiture.titre }}</h2>
+            <p>{{ voiture.description }}</p>
+            <a href="{{ path('fiche_voiture', {'id': voiture.id}) }}">Voir plus</a>
+        </div>
+    {% endfor %}
+
+{% endblock %}
